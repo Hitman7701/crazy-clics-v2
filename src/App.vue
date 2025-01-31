@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 
+import { colorsList } from './assets/data'
+
 const result = ref('')
 
 import Colors from './components/Colors.vue'
@@ -13,6 +15,16 @@ const correctWord = (word) => {
 
   result.value = firstLetter + otherLetters
 }
+
+const randomColor = () => {
+  const random = colorsList[Math.floor(Math.random() * colorsList.length)]
+  result.value = random
+}
+
+const convertKmToCm = (number) => {
+  const convertedNumber = number * 100000
+  result.value = number + ' km = ' + convertedNumber + ' cm'
+}
 </script>
 
 <template>
@@ -20,8 +32,8 @@ const correctWord = (word) => {
   <main>
     <div class="leftColumn">
       <Words @correctWord="correctWord" />
-      <Colors />
-      <Numbers />
+      <Colors @randomColor="randomColor" />
+      <Numbers @convertKmToCm="convertKmToCm" />
     </div>
     <div class="rightColumn">
       <div>

@@ -6,7 +6,7 @@ const emit = defineEmits(['correctWord'])
 
 <template>
   <div>
-    <button @click="$emit('CorrectWord', word)" v-for="word in wordsList" :key="word">
+    <button @click="$emit('correctWord', word)" v-for="word in wordsList" :key="word">
       {{ word }}
     </button>
   </div>

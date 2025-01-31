@@ -1,10 +1,14 @@
 <script setup>
 import { numbersList } from '@/assets/data'
+
+const emit = defineEmits(['convertKmToCm'])
 </script>
 
 <template>
   <div>
-    <button v-for="number in numbersList" :key="index">{{ number }} km</button>
+    <button @click="$emit('convertKmToCm', number)" v-for="number in numbersList" :key="index">
+      {{ number }} km
+    </button>
   </div>
 </template>
 

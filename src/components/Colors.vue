@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+const emit = defineEmits(['randomColor'])
+</script>
 
 <template>
   <div>
-    <button>Couleur surprise</button>
+    <button @click="$emit('randomColor')">Couleur surprise</button>
   </div>
 </template>
 
